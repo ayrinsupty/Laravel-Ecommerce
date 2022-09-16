@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Frontend\Checkout;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
+use Illuminate\Contracts\Session\Session;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -50,6 +51,12 @@ class CheckoutShow extends Component
                 'quantity' => $cartItem->quantity,
                 'price' => $cartItem->product->selling_price
             ]);
+
+            if ($cartItem->product_color_id != NULL) {
+                $cartItem->productColor()->where('id', $cartItem->product_color_id)->decrement('quantity', $cartItem->quantity);
+            } else {
+                $cartItem->product()->where('id', $cartItem->product_id)->decrement('quantity', $cartItem->quantity);
+            }
         }
         return $order;
     }
@@ -63,6 +70,7 @@ class CheckoutShow extends Component
 
             Cart::where('user_id', auth()->user()->id)->delete();
 
+            session()->flash('message', 'Order Placed Successfully');
             $this->dispatchBrowserEvent('message', [
                 'text' => 'Order Placed Successfully',
                 'type' => 'success',
@@ -80,6 +88,7 @@ class CheckoutShow extends Component
 
     public function totalAmount()
     {
+        $this->totalAmount = 0;
         $this->carts = Cart::where('user_id', auth()->user()->id)->get();
 
         foreach ($this->carts as $cartItem) {
