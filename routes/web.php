@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Livewire\Admin\Brand\Index as BrandIndex;
 use App\Http\Livewire\Admin\Color\Index as ColorIndex;
@@ -41,6 +42,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(CheckoutController::class)->group(function() {
         Route::get('checkout', 'index');
+    });
+
+    Route::controller(OrderController::class)->group(function() {
+        Route::get('orders', 'index');
+        Route::get('orders/{orderId}', 'show');
     });
 
 });

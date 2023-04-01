@@ -37,7 +37,7 @@ class CheckoutShow extends Component
             'phone' => $this->phone,
             'pincode' => $this->pincode,
             'address' => $this->address,
-            'status_message' => 'in progess',
+            'status_message' => 'in progress',
             'payment_mode' => $this->payment_mode,
             'payment_id' => $this->payment_id
         ]);
