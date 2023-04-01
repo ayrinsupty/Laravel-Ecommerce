@@ -8,7 +8,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="#">
               <i class="mdi mdi-sale menu-icon"></i>
               <span class="menu-title">Sales</span>
             </a>
