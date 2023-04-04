@@ -3,14 +3,14 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Livewire\Admin\Brand\Index as BrandIndex;
 use App\Http\Livewire\Admin\Color\Index as ColorIndex;
@@ -100,6 +100,12 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
         Route::get('slider/delete/{id}', 'destroy');
     });
 
+    // Slider Routes
+    Route::controller(OrderController::class)->group(function() {
+        Route::get('orders', 'index');
+        Route::get('orders/{orderId}', 'show');
+    });
+
 /*
 |--------------------------------------------------------------------------
 | Livewire Routes
@@ -110,4 +116,5 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
 
     // Color Route
     Route::get('colors', ColorIndex::class);
+
 });
