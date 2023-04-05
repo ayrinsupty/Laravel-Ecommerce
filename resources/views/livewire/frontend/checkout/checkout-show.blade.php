@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label>Phone Number</label>
-                                        <input type="number" wire:model.defer="phone" class="form-control"
+                                        <input type="phone" wire:model.defer="phone" class="form-control"
                                             placeholder="Enter Phone Number" />
                                         @error('phone')
                                             <small class="text-danger">{{ $message }}</small>
