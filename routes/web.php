@@ -15,7 +15,7 @@ use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Livewire\Admin\Brand\Index as BrandIndex;
 use App\Http\Livewire\Admin\Color\Index as ColorIndex;
 use App\Http\Controllers\Admin\OrderController as AdminOrder;
-
+use App\Http\Controllers\Admin\SettingController;
 
 Auth::routes();
 
@@ -69,6 +69,10 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
 
     // Dashboard Route
     Route::get('dashboard', [DashboardController::class, 'index']);
+
+    // Site Setting Route
+    Route::get('settings', [SettingController::class, 'index']);
+    Route::post('settings', [SettingController::class, 'store']);
 
     // Category Routes
     Route::controller(CategoryController::class)->group(function() {
