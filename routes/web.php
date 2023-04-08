@@ -31,6 +31,7 @@ Route::controller(FrontendController::class)->group(function() {
     Route::get('/collections/{category_slug}/{product_slug}', 'productView');
 
     Route::get('/new-arrivals', 'newArrival');
+    Route::get('/featured-products', 'featuredProducts');
 });
 
 Route::middleware(['auth'])->group(function () {

@@ -126,15 +126,19 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="trending">Trending</label>
-                                        <input type="checkbox" name="trending">
-                                        (Checked = Hidden, Unchecked = Visible)
+                                        <input type="checkbox" name="trending" style="width: 30px; height: 30px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="status">Featured</label>
+                                        <input type="checkbox" name="featured" style="width: 30px; height: 30px;">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="status">Status</label>
-                                        <input type="checkbox" name="status">
-                                        (Checked = Hidden, Unchecked = Visible)
+                                        <input type="checkbox" name="status" style="width: 30px; height: 30px;">
                                     </div>
                                 </div>
                             </div>
