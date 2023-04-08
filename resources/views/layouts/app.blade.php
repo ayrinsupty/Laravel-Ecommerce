@@ -48,6 +48,9 @@
         <main>
             @yield('content')
         </main>
+
+        @include('layouts.inc.frontend.footer')
+
     </div>
     <!-- Scripts -->
     <script src="{{ asset('assets\js\bootstrap.bundle.min.js') }}"></script>
@@ -69,7 +72,7 @@
     <script src="{{ asset('assets\exzoom\jquery.exzoom.js') }}"></script>
 
     @yield('script')
-    
+
     @livewireScripts
     @stack('scripts')
 </body>
