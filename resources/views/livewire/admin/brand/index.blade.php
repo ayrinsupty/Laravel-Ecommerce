@@ -1,3 +1,4 @@
+@section('title', 'Brands')
 <div>
    <div class="row">
 
