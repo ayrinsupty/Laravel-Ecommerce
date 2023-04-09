@@ -16,6 +16,7 @@ use App\Http\Livewire\Admin\Brand\Index as BrandIndex;
 use App\Http\Livewire\Admin\Color\Index as ColorIndex;
 use App\Http\Controllers\Admin\OrderController as AdminOrder;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\UserController;
 
 Auth::routes();
 
@@ -117,6 +118,16 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
         // Generate Invoice
         Route::get('invoice/{orderId}', 'viewInvoice');
         Route::get('invoice/{orderId}/generate', 'generateInvoice');
+    });
+
+    // User Routes
+    Route::controller(UserController::class)->group(function() {
+        Route::get('users', 'index');
+        Route::get('users/create', 'create');
+        Route::post('users', 'store');
+        Route::get('users/edit/{id}', 'edit');
+        Route::put('users/{id}', 'update');
+        Route::get('users/delete/{id}', 'destroy');
     });
 
 /*

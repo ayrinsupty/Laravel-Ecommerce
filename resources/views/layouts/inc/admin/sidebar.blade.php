@@ -64,9 +64,8 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ url('') }}"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('') }}"> Register </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('') }}"> Lockscreen </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/users/create') }}"> Add User </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/users') }}"> View Users </a></li>
               </ul>
             </div>
           </li>
