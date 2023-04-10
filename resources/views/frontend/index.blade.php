@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Homepage')
+@section('title', 'Home')
 
 @section('content')
 
@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h4>Welcome To eCommerce</h4>
+                    <h4>Welcome To EShop</h4>
                     <div class="underline mx-auto"></div>
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the

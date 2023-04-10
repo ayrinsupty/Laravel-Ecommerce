@@ -47,7 +47,7 @@
                                 <i class="fa fa-user"></i> {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="fa fa-user"></i> Profile</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
                             <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
@@ -73,7 +73,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                eCommerce
+                EShop
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

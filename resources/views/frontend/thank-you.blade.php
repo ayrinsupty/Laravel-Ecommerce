@@ -13,7 +13,7 @@
                     @endif
                     <div class="p-4 shadow bg-white">
                         <h2>Your Logo</h2>
-                        <h4>Thank You for Shopping with Ecom Ecommerce</h4>
+                        <h4>Thank You for Shopping with EShop</h4>
                         <a href="{{ url('collections') }}" class="btn btn-warning">Shop now</a>
                     </div>
                 </div>

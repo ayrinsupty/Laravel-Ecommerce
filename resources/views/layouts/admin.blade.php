@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'EShop') }}</title>
 
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css') }}">

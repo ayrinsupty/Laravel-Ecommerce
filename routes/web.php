@@ -17,6 +17,7 @@ use App\Http\Livewire\Admin\Color\Index as ColorIndex;
 use App\Http\Controllers\Admin\OrderController as AdminOrder;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\UserController as FrontendUserController;
 
 Auth::routes();
 
@@ -27,13 +28,19 @@ Auth::routes();
 */
 Route::controller(FrontendController::class)->group(function() {
     Route::get('/', 'index');
+
+    // Collections
     Route::get('/collections', 'categories');
     Route::get('/collections/{category_slug}', 'products');
     Route::get('/collections/{category_slug}/{product_slug}', 'productView');
 
+    // New Arrivals
     Route::get('/new-arrivals', 'newArrival');
+
+    // Featured Products
     Route::get('/featured-products', 'featuredProducts');
 
+    // Search Bar
     Route::get('search', 'searchProducts');
 });
 
@@ -55,6 +62,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('orders', 'index');
         Route::get('orders/{orderId}', 'show');
     });
+
+    Route::controller(FrontendUserController::class)->group(function() {
+        Route::get('profile', 'index');
+        Route::post('profile', 'update');
+    });
+
+
 
 });
 
