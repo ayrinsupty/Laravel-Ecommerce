@@ -28,6 +28,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="col-md-7 mt-3">
                     <div class="product-view">
                         <h4 class="product-name">
@@ -116,6 +117,56 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-3 py-md-5 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <h3>Related
+                            @if ($category)
+                                {{ $category->name }}
+                            @endif
+                            Products</h3>
+                        <div class="underline"></div>
+                    </div>
+
+                    @forelse ($category->relatedProducts as $relatedProductItem)
+                        <div class="col-md-3 mb-3">
+                            <div class="product-card">
+                                <div class="product-card-img">
+
+                                    @if ($relatedProductItem->productImages->count() > 0)
+                                        <a
+                                            href="{{ url('/collections/' . $relatedProductItem->category->slug . '/' . $relatedProductItem->slug) }}">
+                                            <img src="{{ asset($relatedProductItem->productImages[0]->image) }}"
+                                                alt="{{ $relatedProductItem->name }}">
+                                        </a>
+                                    @endif
+
+                                </div>
+                                <div class="product-card-body">
+                                    <p class="product-brand">{{ $relatedProductItem->brand }}</p>
+                                    <h5 class="product-name">
+                                        <a
+                                            href="{{ url('/collections/' . $relatedProductItem->category->slug . '/' . $relatedProductItem->slug) }}">
+                                            {{ $relatedProductItem->name }}
+                                        </a>
+                                    </h5>
+                                    <div>
+                                        <span class="selling-price">${{ $relatedProductItem->selling_price }}</span>
+                                        <span class="original-price">${{ $relatedProductItem->original_price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="p-2 col-md-12">
+                            <h4>No Products Available!</h4>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>

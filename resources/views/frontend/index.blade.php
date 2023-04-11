@@ -12,7 +12,7 @@
                     @if ($sliderItem->image)
                         <img src="{{ asset("$sliderItem->image") }}" class="d-block w-100" alt="Slider">
                     @endif
-
+                    <br>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="custom-carousel-content">
                             <h1>
@@ -22,13 +22,12 @@
                                 {!! $sliderItem->description !!}
                             </p>
                             <div>
-                                <a href="#" class="btn btn-slider">
+                                <a href="{{ url('collections') }}" class="btn btn-slider">
                                     Get Now
                                 </a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             @endforeach
 
