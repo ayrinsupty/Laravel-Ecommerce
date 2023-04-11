@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Frontend\Checkout;
 
 use App\Models\Cart;
 use App\Models\Order;
-use App\Models\OrderItem;
-use Illuminate\Contracts\Session\Session;
 use Livewire\Component;
+use App\Models\OrderItem;
 use Illuminate\Support\Str;
+use App\Mail\PlaceOrderMailable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Contracts\Session\Session;
 
 class CheckoutShow extends Component
 {
@@ -69,6 +71,15 @@ class CheckoutShow extends Component
         if ($codOrder) {
 
             Cart::where('user_id', auth()->user()->id)->delete();
+            
+            try{
+                $order = Order::findOrFail($codOrder->id);
+                Mail::to("$order->email")->send(new PlaceOrderMailable($order));
+                // Mail Sent Successfully
+            }catch(\Exception $e){
+                // Something went wrong
+            }
+
 
             session()->flash('message', 'Order Placed Successfully');
             $this->dispatchBrowserEvent('message', [
@@ -101,6 +112,11 @@ class CheckoutShow extends Component
     {
         $this->fullname = auth()->user()->name;
         $this->email = auth()->user()->email;
+
+        $this->phone = auth()->user()->userDetail->phone;
+        $this->pincode = auth()->user()->userDetail->pin_code;
+        $this->address = auth()->user()->userDetail->address;
+
         $this->totalAmount = $this->totalAmount();
         return view('livewire.frontend.checkout.checkout-show', [
 
