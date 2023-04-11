@@ -66,6 +66,8 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(FrontendUserController::class)->group(function() {
         Route::get('profile', 'index');
         Route::post('profile', 'update');
+        Route::get('change-password', 'passwordCreate');
+        Route::post('change-password', 'changePassword');
     });
 
 
